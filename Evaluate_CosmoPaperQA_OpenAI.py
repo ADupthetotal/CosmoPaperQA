@@ -1,19 +1,35 @@
 import os
 from openai import OpenAI
 from pydantic import BaseModel, Field, conlist
-import time
 import numpy as np
 from numpy.linalg import norm
 import re
-from IPython.display import clear_output
-import sys
 from rake_nltk import Rake
 from pylatexenc.latex2text import LatexNodes2Text
 import nltk
 import json
-from bs4 import BeautifulSoup, Comment
 from typing import Literal
-import markdown
+from typing import Any
+
+from inspect_ai.solver import (
+    TaskState,
+    solver,
+)
+from inspect_ai import Task, task
+from inspect_ai.dataset import Sample
+from inspect_ai.scorer import (
+    CORRECT,
+    INCORRECT,
+    Score,
+    Target,
+    accuracy,
+    stderr,
+    scorer,
+)
+from inspect_ai.solver import bridge
+from inspect_ai import eval
+
+import pandas as pd
 
 os.environ["CMBAGENT_DEBUG"] = "false"
 os.environ["CMBAGENT_DISABLE_DISPLAY"] = "true"
@@ -299,28 +315,6 @@ async def embedding_answers(answer, ideal, custom_stopwords, english_words) -> s
     #mean is a crude way to combine these scores.
     #will consider "correct" if mean >=0.8, otherwise "incorrect" (also a crude metric)
     return np.mean(np.array(result_1))
-
-from openai import AsyncOpenAI
-from typing import Any
-from inspect_ai.solver import (
-    TaskState,
-    solver,
-)
-from inspect_ai import Task, task
-from inspect_ai.dataset import Sample
-from inspect_ai.scorer import (
-    CORRECT,
-    INCORRECT,
-    Score,
-    Target,
-    accuracy,
-    stderr,
-    scorer,
-)
-from inspect_ai.solver import bridge
-from inspect_ai import eval
-
-import pandas as pd
 
 #code to set up keyphrase extraction + extraction of questions and ideal from files
 nltk.download('stopwords')
