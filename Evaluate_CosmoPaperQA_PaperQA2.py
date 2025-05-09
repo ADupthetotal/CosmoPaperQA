@@ -1,5 +1,6 @@
 import os
 from openai import OpenAI
+from paperqa import Settings, Docs
 from pydantic import BaseModel, Field, conlist
 import numpy as np
 from numpy.linalg import norm
