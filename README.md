@@ -1,2 +1,4 @@
 # CosmoPaperQA
 A dataset designed to test AI RAG (Retrieval Augmented Generation) for cosmology research applications, called CosmoPaperQA. Also includes a "proof of concept" AI evaluation algorithm that is designed to perform automated performance evaluation for complex research retrieval questions, like those which are included in the the CosmoPaperQA dataset.
+
+The python code above uses the InspectAI framework to do performance evaluation using the CosmoPaperQA dataset. Evaluate_CosmoPaperQA_OpenAI.py uses the native OpenAI vector file stores (the vector store needs to be created seperately) and a simple OpenAI question answering agent to generate answers to the questions in CosmoPaperQA. Evaluate_CosmoPaperQA_PaperQA2.py uses PaperQA2 (https://github.com/Future-House/paper-qa) to generate the answers to the questions in CosmoPaperQA.
