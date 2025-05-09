@@ -144,7 +144,7 @@ async def embedding_answers(answer, ideal, custom_stopwords, english_words) -> s
     r = Rake(stopwords=custom_stopwords)
     #Extraction given the text.
     text1=preprocess_text(answer)
-    #ideal is formatted using latex for CMBagent
+    #ideal is formatted using latex for CosmoPaperQA
     ideal=LatexNodes2Text().latex_to_text(ideal)
     text2=preprocess_text(ideal)
     r.extract_keywords_from_text(text1)
