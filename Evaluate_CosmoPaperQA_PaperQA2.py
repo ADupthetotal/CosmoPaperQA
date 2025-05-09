@@ -54,6 +54,16 @@ for doc in (full_paths):
 lit = pd.read_csv('../cmbagent_dataset/cmbagent_dataset.csv', delimiter="\t")
 
 async def rag_agent(question, docs, rag_model) -> str:
+    """
+    Runs the PaperQA2 RAG, returning the answer to the inputted question, given the docs object.
+    
+    Args:
+        question: Question to be answered
+        docs: Documents to be searched for answers (object class is part of PaperQA2 library)
+        rag_model: LLM that can be used to power PaperQA2 RAG
+    Returns:
+        Answer to the inputted question
+    """
     settings = Settings()
     settings.temperature=0.0
     settings.llm = rag_model
@@ -73,6 +83,18 @@ class eval_format(BaseModel):
 
 #function for the evaluation agent
 async def eval_agent(question, answer, ideal, eval_model) -> str:
+    """
+    Runs the OpenAI Evaluation AI
+    
+    Args:
+        question: Question that the two answers are answering (included for context)
+        answer: Generated answer to the question
+        ideal: "Ideal" answer the generated answer is to be compared to.
+        eval_model: OpenAI model to power the agent
+    
+    Returns:
+        Evaluation in the form of "Same", "Similar" or "Different"
+    """
     eval_message="""
     You are an evaluation agent tasked with comparing the given two different answers to the same question. 
     Focus on the meaning of both answers, in the context of the question, when formulating your evaluation.
@@ -125,6 +147,9 @@ async def eval_agent(question, answer, ideal, eval_model) -> str:
     return evaluation
     
 def preprocess_text(text):
+    """
+    Preprocesses text for keyphrase extraction
+    """
     # Replace decimals/commas in numbers with an underscore and replace hyphens with underscores, generally (except for negative numbers).
     #It is only these cases that the sentence tokenizer in Rake doesn't seem to handle well
     text = re.sub(r'(\d+)\.(\d+)', r'\1_\2', text)
@@ -140,6 +165,17 @@ def preprocess_text(text):
     
 #function for the enbedding answers algorithm
 async def embedding_answers(answer, ideal, custom_stopwords, english_words) -> str:
+    """
+    Novel part of AI evaluation algorithm. This algorithm extracts the keyphrases from the generated and "ideal" answers and then compares the cosine similarity of the vector embeddings between the keyphrases of the "ideal" answer and the generated answer. It gets the maximum cosine similarity for each keyphrase in the "ideal" answer and takes the mean of all of them. This mean is the returned "score". There is some additional preprocessing due to formatting and additional handling of "names" that may not have a meaningful vector embedding, but that is the main idea.
+    
+    Args:
+        answer: Generated answer to the question
+        ideal: "Ideal" answer the generated answer is to be compared to.
+        custom_stopwords: A list of common words for the keyphrase extractor to automatically ignore.
+        english_words: A list of words in english
+    Returns:
+        A mean score between 0 and 1 (in practise, between ~0.7 and 1). Generated answer considered "correct" if mean score >=0.8 
+    """"
     #tell Rake to leave logical comparatives alone
     r = Rake(stopwords=custom_stopwords)
     #Extraction given the text.
@@ -232,6 +268,7 @@ new_output_holder= CSVHolder(pd.DataFrame({
     'evaluation': pd.Series(dtype='object')
 }))
 
+#InspectAI framework to do performance evaluation
 async def my_agent(task_input: list[dict[str, Any]]) -> str:
     #replace "gpt-4o-mini" with model you want to use for OpenAI RAG
     answer = await rag_agent(task_input[0]["content"], docs, "gpt-4o-mini")
@@ -268,6 +305,7 @@ def my_scorer(eval_model: str, custom_stopwords: set, english_words: set, new_ou
 
         #sort out new_output pass by ref
         if (embedding_eval >= 0.8 and (eval_ai in ["Same", "Similar"])):
+            #New "combined" evaluation will consider a generated answer "correct" if both the embedding_eval score is >=0.8 and if the AI evaluation returns "Same" or "Similar"
             new_entry=pd.DataFrame({"question":this_question, "answer":this_answer, "ideal":this_ideal, "AI_eval": eval_ai, "embedding_eval": embedding_eval, "evaluation":"CORRECT"}, index=[0])
             new_output_holder.value=pd.concat([new_output_holder.value, new_entry], ignore_index=True)
             new_output_holder.value.to_csv("output_CosmoPaperQA_PaperQA2_eval.csv", index=False)
