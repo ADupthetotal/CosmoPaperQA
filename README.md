@@ -18,3 +18,5 @@ For the LitQA2_edit dataset, with OpenAI RAG answering, accuracy of the combined
 For the LitQA2_edit dataset, with PaperQA2 RAG answering, accuracy of the combined algorithm vs the AI algorithm only is 83% vs 78% (respectively).
 
 Thus, even with this unrefined implementation, there is a measureable improvement with the combined evaluation algorithm versus the AI evaluation only.
+
+Thanks to Dr Boris Bolliet (https://github.com/borisbolliet) for advice and support during the development of this project.
