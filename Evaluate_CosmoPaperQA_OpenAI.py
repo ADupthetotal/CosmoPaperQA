@@ -41,7 +41,8 @@ class CSVHolder:
 
 client = OpenAI(api_key = os.environ["OPENAI_API_KEY"])
 
-#vector store for files used for RAG, change this to whatever vector store you have for OpenAI
+#Vector store for files used for RAG, change this to whatever vector store you have for OpenAI. 
+#See Create_Vector_Store_Example.ipynb in the repository to see how to do this.
 vector_store=client.vector_stores.retrieve(vector_store_id="vs_67da9f09a6b48191a32189befe73c49e")
 
 #assistant_data is directory in which papers used in RAG can be found
@@ -420,6 +421,7 @@ def my_scorer(eval_model: str, custom_stopwords: set, english_words: set, new_ou
 
         #sort out new_output pass by ref
         if (embedding_eval >= 0.8 and (eval_ai in ["Same", "Similar"])):
+            #New "combined" evaluation will consider a generated answer "correct" if both the embedding_eval score is >=0.8 and if the AI evaluation returns "Same" or "Similar".
             new_entry=pd.DataFrame({"question":this_question, "answer":this_answer, "ideal":this_ideal, "AI_eval": eval_ai, "embedding_eval": embedding_eval, "evaluation":"CORRECT"}, index=[0])
             new_output_holder.value=pd.concat([new_output_holder.value, new_entry], ignore_index=True)
             new_output_holder.value.to_csv("output_CosmoPaperQA_OpenAI_eval.csv", index=False)
