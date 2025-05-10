@@ -18,7 +18,7 @@ The cosine similarity from the keyphrases of the "correct" answer to the keyphra
 The PaperQA2 RAG takes in a question and documents and uses the information in the documents to answer the question. The code involves gathering and ranking evidence/chunks from source papers, based on their relevance to answering the given question, and then generating the answer to the question based on the top ranked chunks.
 
 ### OpenAI RAG
-The OpenAI RAG also takes in a question and documents and uses the information in the documents to answer the question. The code also involves gathering and ranking evidence/chunks from source papers, based on their relevance to answering the given question, and then generating the answer to the question based on the top ranked chunks, similar to PaperQA2 RAG.
+The OpenAI RAG also takes in a question and documents and uses the information in the documents to answer the question. The code follows the same RAG methodology as the PaperQA2 algorithm.
 
 ## Implementing the Codebase
 The python code in the directory "Code_Breakdown" uses the InspectAI framework to do performance evaluation using the CosmoPaperQA dataset and the Embed_AI evaluation algorithm. 
