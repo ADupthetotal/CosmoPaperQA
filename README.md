@@ -21,7 +21,7 @@ Correctness is the percentage of generated answers that were evaluated to be cor
 |    LitQA2_edit with OpenAI RAG|                                      85%|                                   75%|                                79%|
 |  LitQA2_edit with PaperQA2 RAG|                                      80%|                                   73%|                                79%|
 
-Accuracy is the percentage of the given automated evaluation method's answers that agree with the human evaluations.
+Accuracy is the percentage of the given automated evaluation results that agree with the human evaluations.
 
 |                               | Accuracy of OpenAI evaluator agent| Accuracy of Embed_AI evaluation|
 |-------------------------------|-----------------------------------|--------------------------------|
