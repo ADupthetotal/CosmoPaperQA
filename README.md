@@ -12,7 +12,7 @@ The OpenAI evaluator agent takes in the generated answer, the "correct" or "idea
 ### Embed_AI evaluation
 Embed_AI utilises both the custom OpenAI evaluator agent and cosine similarities of vector embeddings between extracted key phrases of the generated and "correct" answers. 
 
-The cosine similarity from the keyphrases of the "correct" answer to the keyphrases of the generated answer is maximised and the mean is taken of all of the maximised cosine similiarities. The generated answer is considered "correct" if both the OpenAI evaluator agent outputs "Same"/"Similar" and the mean cosine similarity is greater than or equal to 0.8. Otherwise, the generated answer is considered "incorrect". 
+The cosine similarity from the keyphrases of the "correct" answer to the keyphrases of the generated answer is maximised i.e. for each keyphrase in the "correct answer", exactly one cosine similarity is maximised. The mean is taken of all of the maximised cosine similiarities. The generated answer is considered "correct" if both the OpenAI evaluator agent outputs "Same"/"Similar" and the mean cosine similarity is greater than or equal to 0.8. Otherwise, the generated answer is considered "incorrect". 
 
 ### PaperQA2 RAG
 The PaperQA2 RAG takes in a question and documents and uses the information in the documents to answer the question. The code involves gathering and ranking evidence/chunks from source papers, based on their relevance to answering the given question, and then generating the answer to the question based on the top ranked chunks.
