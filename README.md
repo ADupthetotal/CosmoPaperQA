@@ -1,7 +1,7 @@
 # CosmoPaperQA
 
 ## Features
-CosmoPaperQA is a dataset designed to test AI RAG (Retrieval Augmented Generation) for cosmology research applications. 
+CosmoPaperQA is a dataset designed to test AI RAG (Retrieval Augmented Generation) for cosmology research applications.  A current bottleneck in research into utilising AI in cosmological reseach is the lack of a specific cosmoogy research dataset.
 
 This repository also includes a "proof of concept" AI evaluation algorithm that is designed to perform automated performance evaluation for complex research retrieval questions, like those which are included in the the CosmoPaperQA dataset. This new AI evaluation algorithm is called Embed_AI. 
 
@@ -50,11 +50,12 @@ Accuracy is the percentage of the given automated evaluation results that agree 
 |    LitQA2_edit with OpenAI RAG|                                78%|                             89%|
 |  LitQA2_edit with PaperQA2 RAG|                                79%|                             83%|
 
+
+## Key Fidnings
 Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than the custom OpenAI evaluator agent alone, across all data. 
 
-Also, this particular implementation is unrefined and there is room for much improvement. As can be seen in the table above, even with this unrefined implementation, there is a measureable improvement in accuracy from the custom OpenAI evaluator to the Embed_AI algorithm.
+Also, this particular implementation is unrefined and there is room for much improvement. As can be seen in the table above, even with this unrefined implementation, there is a measureable improvement in accuracy from the custom OpenAI evaluator to the Embed_AI algorithm.Therefore, Eval_AI can increase the accuracy of performance evaluation, even unrefined. 
 
-## Remarks regarding Differences between the PaperQA2 and the OpenAI RAG agents
 From the results gathered, the PaperQA2 and the OpenAI RAG agent answers were observed to have similar levels of correctness, measured against human evaluation and with the same datasets, with differences of less than 3% across all results gathered. 
 
 Thus, I conjecture that this similarity in correctness between the OpenAI RAG agent and the PaperQA2 RAG agents (across the CosmoPaperQA and the LitQA2_edit datasets) is due to this similar methodology in RAG implementation. If this is true, then the design of my OpenAI RAG agent was successful in its aim to mimic the behaviour of the PaperQA2 code.
