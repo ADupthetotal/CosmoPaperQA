@@ -7,16 +7,16 @@ Libraries that are required for both python scripts are [os](https://docs.python
 
 LitQA2_edit is an edited version of [LitQA2](https://github.com/Future-House/LAB-Bench/blob/main/LitQA2/litqa-v2-public.jsonl) used to compare CosmoPaperQA to other datasets designed for performance evaluation of AI agents in scientific research.
 
-Even though the combined evaluation algorithm implemented here is still not in agreement with human evaluation, it is still more accurate than AI evaluation alone. Also, this particular implementation is unrefined and there is room for much improvement.
+Even though the Embed_AI algorithm implemented here is still not in agreement with human evaluation, it is still more accurate than AI evaluation alone. Also, this particular implementation is unrefined and there is room for much improvement.
 
-For the CosmoPaperQA dataset, with OpenAI RAG answering, accuracy of the combined algorithm vs the AI algorithm only is 76% vs 70% (respectively).
+For the CosmoPaperQA dataset, with OpenAI RAG answering, accuracy of the Embed_AI algorithm vs the AI algorithm only is 76% vs 70% (respectively).
 
-For the CosmoPaperQA dataset, with PaperQA2 RAG answering, accuracy of the combined algorithm vs the AI algorithm only is 81% vs 73% (respectively).
+For the CosmoPaperQA dataset, with PaperQA2 RAG answering, accuracy of the Embed_AI algorithm vs the AI algorithm only is 81% vs 73% (respectively).
 
-For the LitQA2_edit dataset, with OpenAI RAG answering, accuracy of the combined algorithm vs the AI algorithm only is 89% vs 78% (respectively).
+For the LitQA2_edit dataset, with OpenAI RAG answering, accuracy of the Embed_AI algorithm vs the AI algorithm only is 89% vs 78% (respectively).
 
-For the LitQA2_edit dataset, with PaperQA2 RAG answering, accuracy of the combined algorithm vs the AI algorithm only is 83% vs 78% (respectively).
+For the LitQA2_edit dataset, with PaperQA2 RAG answering, accuracy of the Embed_AI algorithm vs the AI algorithm only is 83% vs 78% (respectively).
 
-Thus, even with this unrefined implementation, there is a measureable improvement with the combined evaluation algorithm versus the AI evaluation only.
+Thus, even with this unrefined implementation, there is a measureable improvement with the Embed_AI algorithm versus the AI evaluation only.
 
 Thanks to [Dr Boris Bolliet](https://github.com/borisbolliet) for advice and support during the development of this project.
