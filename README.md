@@ -24,5 +24,8 @@ For the LitQA2_edit dataset, with PaperQA2 RAG answering the questions, accuracy
 
 Thus, even with this unrefined implementation, there is a measureable improvement with the Embed_AI algorithm versus the custom OpenAI evaluator only.
 
+## Remarks regarding Differences between the PaperQA2 and the OpenAI RAG agents
+From the results gathered, the PaperQA2 and the OpenAI RAG agent answers were observed to have similar levels of "correctness" (percentage of generated answers that were correct), measured against human evaluation, with differences of less than 3% across all results gathered. The PaperQA2 methodology involves gathering and ranking evidence/chunks from the source papers, based on their relevance to answering the given question, and then generating the answer to the question based on the top ranked chunks. The OpenAI RAG agent I coded was designed to follow this same methodology. Thus, I conjecture that this similarity in correctness between the OpenAI RAG agent and the PaperQA2 RAG agents (across the CosmoPaperQA and the LitQA2_edit datasets) is due to this similar methodology in RAG implementation. If this is true, then the design of my OpenAI RAG agent was successful in its aim.
+
 ## Acknowledgements
 Thanks to [Dr Boris Bolliet](https://github.com/borisbolliet) for advice and support during the development of this project.
