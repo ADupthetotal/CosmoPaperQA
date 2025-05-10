@@ -25,7 +25,9 @@ Either the OpenAI RAG framework or the [PaperQA2](https://github.com/Future-Hous
 
 Use the functions contained in OpenAI_RAG_Agent/PaperQA2_RAG_agent, Embed_AI and Inspect_AI_framework and then run the line `inspect_ai_eval(rag_agent, eval_agent, embedding_answers)` to implement the RAG answer generation and performance evaluation of the CosmoPaperQA dataset.
 
-Ensure that the follwoing libraries are installed before running the python scripts: [os](https://docs.python.org/3/library/os.html), [openai](https://pypi.org/project/openai/), [pydantic](https://pypi.org/project/pydantic/), [numpy](https://pypi.org/project/numpy/), [re](https://docs.python.org/3/library/re.html), [rake_nltk](https://pypi.org/project/rake-nltk/), [pylatexenc.latex2text](https://pypi.org/project/pylatexenc/), [nltk](https://www.nltk.org/), [json](https://docs.python.org/3/library/json.html), [typing](https://docs.python.org/3/library/typing.html) and [inspect_ai](https://inspect.aisi.org.uk/). PaperQA2_RAG_agent additionally requires [paperqa](https://github.com/Future-House/paper-qa).
+Ensure that the follwoing libraries are installed before running the python scripts: 
+
+[os](https://docs.python.org/3/library/os.html), [openai](https://pypi.org/project/openai/), [pydantic](https://pypi.org/project/pydantic/), [numpy](https://pypi.org/project/numpy/), [re](https://docs.python.org/3/library/re.html), [rake_nltk](https://pypi.org/project/rake-nltk/), [pylatexenc.latex2text](https://pypi.org/project/pylatexenc/), [nltk](https://www.nltk.org/), [json](https://docs.python.org/3/library/json.html), [typing](https://docs.python.org/3/library/typing.html) and [inspect_ai](https://inspect.aisi.org.uk/). PaperQA2_RAG_agent additionally requires [paperqa](https://github.com/Future-House/paper-qa).
 
 ## Edited LitQA2 Dataset
 LitQA2_edit is an edited version of [LitQA2](https://github.com/Future-House/LAB-Bench/blob/main/LitQA2/litqa-v2-public.jsonl) used to compare CosmoPaperQA to other datasets designed for performance evaluation of AI agents in scientific research.
