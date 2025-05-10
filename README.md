@@ -14,13 +14,13 @@ LitQA2_edit is an edited version of [LitQA2](https://github.com/Future-House/LAB
 ## Accuracy of Embed_AI
 Even though the Embed_AI algorithm implemented here is still not in agreement with human evaluation, it is still more accurate than the AI evaluation agents alone. Also, this particular implementation is unrefined and there is room for much improvement.
 
--For the CosmoPaperQA dataset, with OpenAI RAG answering the questions, accuracy of the Embed_AI algorithm vs the OpenAI evaluator is 76% vs 70% (respectively).
+- For the CosmoPaperQA dataset, with OpenAI RAG answering the questions, accuracy of the Embed_AI algorithm vs the OpenAI evaluator is 76% vs 70% (respectively).
 
--For the CosmoPaperQA dataset, with PaperQA2 RAG answering the questions, accuracy of the Embed_AI algorithm vs the OpenAI evaluator is 81% vs 73% (respectively).
+- For the CosmoPaperQA dataset, with PaperQA2 RAG answering the questions, accuracy of the Embed_AI algorithm vs the OpenAI evaluator is 81% vs 73% (respectively).
 
--For the LitQA2_edit dataset, with OpenAI RAG answering the questions, accuracy of the Embed_AI algorithm vs the OpenAI evaluator is 89% vs 78% (respectively).
+- For the LitQA2_edit dataset, with OpenAI RAG answering the questions, accuracy of the Embed_AI algorithm vs the OpenAI evaluator is 89% vs 78% (respectively).
 
--For the LitQA2_edit dataset, with PaperQA2 RAG answering the questions, accuracy of the Embed_AI algorithm vs the OpenAI evaluator is 83% vs 78% (respectively).
+- For the LitQA2_edit dataset, with PaperQA2 RAG answering the questions, accuracy of the Embed_AI algorithm vs the OpenAI evaluator is 83% vs 78% (respectively).
 
 Thus, even with this unrefined implementation, there is a measureable improvement with the Embed_AI algorithm versus the custom OpenAI evaluator only.
 
