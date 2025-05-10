@@ -51,7 +51,7 @@ Accuracy is the percentage of the given automated evaluation results that agree 
 |  LitQA2_edit with PaperQA2 RAG|                                79%|                             83%|
 
 
-## Key Fidnings
+## Key Findings
 Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than the custom OpenAI evaluator agent alone, across all data. 
 
 Also, this particular implementation is unrefined and there is room for much improvement. As can be seen in the table above, even with this unrefined implementation, there is a measureable improvement in accuracy from the custom OpenAI evaluator to the Embed_AI algorithm. Therefore, Eval_AI can increase the accuracy of performance evaluation, even unrefined. 
