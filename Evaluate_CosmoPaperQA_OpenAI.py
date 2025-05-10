@@ -421,7 +421,7 @@ def my_scorer(eval_model: str, custom_stopwords: set, english_words: set, new_ou
 
         #sort out new_output pass by ref
         if (embedding_eval >= 0.8 and (eval_ai in ["Same", "Similar"])):
-            #New "combined" evaluation will consider a generated answer "correct" if both the embedding_eval score is >=0.8 and if the AI evaluation returns "Same" or "Similar".
+            #Embed_AI evaluation algorithm will consider a generated answer "correct" if both the embedding_eval score is >=0.8 and if the AI evaluation returns "Same" or "Similar".
             new_entry=pd.DataFrame({"question":this_question, "answer":this_answer, "ideal":this_ideal, "AI_eval": eval_ai, "embedding_eval": embedding_eval, "evaluation":"CORRECT"}, index=[0])
             new_output_holder.value=pd.concat([new_output_holder.value, new_entry], ignore_index=True)
             new_output_holder.value.to_csv("output_CosmoPaperQA_OpenAI_eval.csv", index=False)
