@@ -58,7 +58,7 @@ Also, this particular implementation is unrefined and there is room for much imp
 
 From the results gathered, the PaperQA2 and the OpenAI RAG agent answers were observed to have similar levels of correctness, measured against human evaluation and with the same datasets, with differences of less than 3% across all results gathered. 
 
-Thus, we conjecture that this similarity in correctness between the OpenAI RAG agent and the PaperQA2 RAG agents (across the CosmoPaperQA and the LitQA2_edit datasets) is due to this similar methodology in RAG implementation. If this is true, then the design of the OpenAI RAG agent was successful in its aim to mimic the behaviour of the PaperQA2 code.
+We conjecture that this similarity in correctness between the OpenAI RAG agent and the PaperQA2 RAG agents (across the CosmoPaperQA and the LitQA2_edit datasets) is due to this similar methodology in RAG implementation. If this is true, then the design of the OpenAI RAG agent was successful in its aim to mimic the behaviour of the PaperQA2 code.
 
 ## Acknowledgements
 Thanks to [Dr Boris Bolliet](https://github.com/borisbolliet) for advice and support during the development of this project.
