@@ -3,7 +3,7 @@
 ## Features
 CosmoPaperQA is a dataset designed to test AI RAG (Retrieval Augmented Generation) for cosmology research applications.  A current bottleneck in research into utilising AI in cosmological reseach is the lack of a specific cosmology research dataset.
 
-This repository also includes a "proof of concept" AI evaluation algorithm that is designed to perform automated evaluation of answers given by RAG agents when answering complex research retrieval questions, like those which are included in the the CosmoPaperQA dataset. This new AI evaluation algorithm is called Embed_AI. 
+This repository also includes a "proof of concept" algorithm that is designed to perform automated evaluation of answers given by RAG agents when answering complex research retrieval questions, like those which are included in the the CosmoPaperQA dataset. This new AI evaluation algorithm is called Embed_AI. 
 
 ## Description
 ### OpenAI evaluator agent
