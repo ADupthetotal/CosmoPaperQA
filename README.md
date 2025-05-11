@@ -13,10 +13,10 @@ The OpenAI evaluator agent takes in the generated answer, the "correct" or "idea
 Embed_AI utilises both the custom OpenAI evaluator agent and cosine similarities of vector embeddings between extracted key phrases of the generated and "correct" answers. It uses both the evaluator agent and the cosine similarities to give a "correct" or "incorrect" evaluation of the generated answers.
 
 ### PaperQA2 RAG
-The PaperQA2 RAG takes in a question and documents and uses the information in the documents to answer the question. The code involves gathering and ranking evidence/chunks from source papers, based on their relevance to answering the given question, and then generating the answer to the question based on the top ranked chunks.
+The PaperQA2 RAG takes in a question and documents and uses the information in the documents to answer the question. The code involves gathering and ranking evidence/chunks from source papers, based on their relevance to answering the given question, and then generating the answer to the question based on the top ranked chunks. The [PaperQA2](https://github.com/Future-House/paper-qa) code does also allow for citation traversal, using Semantic Scholar or CrossRef, but it was not implemented in this code or used to generate the given results.
 
 ### OpenAI RAG
-The OpenAI RAG also takes in a question and documents and uses the information in the documents to answer the question. The code follows the same RAG methodology as the PaperQA2 algorithm.
+The OpenAI RAG also takes in a question and documents and uses the information in the documents to answer the question. The code follows the same RAG methodology as the PaperQA2 algorithm. The main difference between the two is that the PaperQA2 RAG uses cosine similarities to rank the chunks from the papers, while OpenAI RAG uses semantic search to rank the chunks.
 
 ## Implementing the Codebase
 The python code in the directory "Code_Breakdown" uses the InspectAI framework to do performance evaluation using the CosmoPaperQA dataset and the Embed_AI evaluation algorithm. 
@@ -50,6 +50,7 @@ Accuracy is the percentage of the given automated evaluation results that agree 
 |    LitQA2_edit with OpenAI RAG|                                78%|                             89%|
 |  LitQA2_edit with PaperQA2 RAG|                                79%|                             83%|
 
+The OpenAI GPT-4o-mini LLM model was used to power all of the agents used to generate the above results. In total, getting these results cost around £20, with the PaperQA RAG runs making up the vast majority of that cost.
 
 ## Key Findings
 Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than the custom OpenAI evaluator agent alone, across all data. 
