@@ -48,7 +48,7 @@ Accuracy is the percentage of the given automated evaluation results that agree 
 |   CosmoPaperQA with OpenAI RAG|                                70%|                             76%|
 | CosmoPaperQA with PaperQA2 RAG|                                73%|                             81%|
 |    LitQA2_edit with OpenAI RAG|                                78%|                             89%|
-|  LitQA2_edit with PaperQA2 RAG|                                79%|                             83%|
+|  LitQA2_edit with PaperQA2 RAG|                                78%|                             83%|
 
 The OpenAI GPT-4o-mini LLM model was used to power all of the agents used to generate the above results. In total, getting these results cost around £20, with the PaperQA RAG runs making up the vast majority of that cost.
 
