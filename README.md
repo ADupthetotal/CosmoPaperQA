@@ -18,6 +18,9 @@ The PaperQA2 RAG takes in a question and documents and uses the information in t
 ### OpenAI RAG
 The OpenAI RAG also takes in a question and documents and uses the information in the documents to answer the question. The code follows the same RAG methodology as the PaperQA2 algorithm. The main difference between the two is that the PaperQA2 RAG uses cosine similarities to rank the chunks from the papers, while OpenAI RAG uses semantic search to rank the chunks.
 
+### Mistral RAG
+First, the Mistral RAG agent uses the Mistral OCR to convert the source papers into a markdown format. Then, Mistral RAG uses document chunks' text embeddings to create a vector store of the source papers. Cosine similarity between the chunks and the question is used to get the relevant information/chunks to answer the question. Finally, the Mistral AI uses the extracted chunks to generate the answer to the original question.
+
 ## Implementing the Codebase
 The python code in the "functions" directory uses the InspectAI framework to do performance evaluation using the CosmoPaperQA dataset and the Embed_AI evaluation algorithm. 
 
