@@ -19,7 +19,7 @@ The PaperQA2 RAG takes in a question and documents and uses the information in t
 The OpenAI RAG also takes in a question and documents and uses the information in the documents to answer the question. The code follows the same RAG methodology as the PaperQA2 algorithm. The main difference between the two is that the PaperQA2 RAG uses cosine similarities to rank the chunks from the papers, while OpenAI RAG uses semantic search to rank the chunks.
 
 ## Implementing the Codebase
-The python code in the directory "Code_Breakdown" uses the InspectAI framework to do performance evaluation using the CosmoPaperQA dataset and the Embed_AI evaluation algorithm. 
+The python code in the "functions" directory uses the InspectAI framework to do performance evaluation using the CosmoPaperQA dataset and the Embed_AI evaluation algorithm. 
 
 Either the OpenAI RAG framework or the [PaperQA2](https://github.com/Future-House/paper-qa) RAG framework can be used to generate answers to the questions in CosmoPaperQA. 
 
