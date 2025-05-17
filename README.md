@@ -39,10 +39,10 @@ LitQA2_edit is an edited version of [LitQA2](https://github.com/Future-House/LAB
 
 ## Summary of Results
 The errors quoted here are calculated using the standard error (SE). 
-\[
+$$
 SE=\sqrt(\frac{\mu(1-\mu)}{n}
-\] 
-Here, $\mu$ is the mean and $\n$ is the sample number. 
+$$ 
+Here, $\mu$ is the mean and $n$ is the sample number. 
 
 Correctness is the percentage of generated answers that were evaluated to be correct.
 
