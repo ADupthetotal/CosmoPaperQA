@@ -38,6 +38,8 @@ Ensure that the following libraries are installed before running the python scri
 LitQA2_edit is an edited version of [LitQA2](https://github.com/Future-House/LAB-Bench/blob/main/LitQA2/litqa-v2-public.jsonl) used to compare CosmoPaperQA to other datasets designed for performance evaluation of AI agents in scientific research.
 
 ## Summary of Results
+The errors quoted here are calculated using the standard error (SE). $SE=\sqrt(\frac{\mu(1-\mu)}{n}), where $\mu$ is the mean and $\n$ is the sample number. 
+
 Correctness is the percentage of generated answers that were evaluated to be correct.
 
 |                                    | Correctness using OpenAI evaluator agent(%)| Correctness using Embed_AI evaluation(%)| Correctness using human evaluation(%)|
@@ -68,7 +70,7 @@ Accuracy is the percentage of the given automated evaluation results that agree 
 The OpenAI GPT-4o-mini LLM model was used to power all of the OpenAI agents used to generate the above results. The text embeddings for OpenAI used the text-embedding-ada-002 model. The Mistral LLM model used to power the RAG agent was mistral-medium-latest and the Mistral text embedding model used to faciliate the Mistral RAG agent was mistral-embed. In total, getting these results cost around £50, with the PaperQA RAG runs and the 4o OpenAI runs making up the majority of that cost.
 
 ## Key Findings
-Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than the custom OpenAI evaluator agent alone, across all data. 
+Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than or equal to the custom OpenAI evaluator agent alone, across nearly all of the data. The one notable excpetion is the PaperQA2 RAG agent answering the questions from the LitQA2_edit dataset.
 
 Also, this particular implementation is unrefined and there is room for much improvement. As can be seen in the table above, even with this unrefined implementation, there is a measureable improvement in accuracy from the custom OpenAI evaluator to the Embed_AI algorithm. Therefore, Eval_AI can increase the accuracy of performance evaluation, even unrefined. 
 
