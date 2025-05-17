@@ -67,7 +67,7 @@ Accuracy is the percentage of the given automated evaluation results that agree 
 |       LitQA2_edit with PaperQA2 RAG|                        83&plusmn;4|                           88&plusmn;3|
 |        LitQA2_edit with Mistral RAG|                        88&plusmn;3|                           85&plusmn;4|
 
-The OpenAI GPT-4o-mini LLM model was used to power all of the OpenAI agents used to generate the above results. The text embeddings for OpenAI used the text-embedding-ada-002 model. The Mistral LLM model used to power the RAG agent was mistral-medium-latest and the Mistral text embedding model used to faciliate the Mistral RAG agent was mistral-embed. In total, getting these results cost around £20, with the PaperQA RAG runs making up the majority of that cost.
+The OpenAI GPT-4o-mini LLM model was used to power all of the OpenAI agents used to generate the above results. The text embeddings for OpenAI used the text-embedding-ada-002 model. The Mistral LLM model used to power the RAG agent was mistral-medium-latest and the Mistral text embedding model used to faciliate the Mistral RAG agent was mistral-embed. In total, getting these results cost around £25, with the PaperQA RAG runs making up the majority of that cost.
 
 ## Key Findings
 Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than or equal to the custom OpenAI evaluator agent alone, across nearly all of the data. The one notable exception is the PaperQA2 RAG agent answering the questions from the LitQA2_edit dataset, but even that isn't statisitcally significant.
