@@ -83,7 +83,7 @@ The following results used the text-embedding-3-large model for the vector embed
 Getting these results cost around £20, giving a total of around £45.
 
 ## Key Findings
-Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than or equal to the custom OpenAI evaluator agent alone, across nearly all of the data. The one notable exception is the PaperQA2 RAG agent answering the questions from the LitQA2_edit dataset, but even that isn't statistically significant.
+Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than or roughly equal to the custom OpenAI evaluator agent alone, across nearly all of the data. The one notable exception is the PaperQA2 RAG agent answering the questions from the LitQA2_edit dataset, but even that isn't statistically significant.
 
 The Embed_AI algorithm is unrefined and there is room for much improvement. As can be seen in the table above, even with this unrefined implementation, Embed_AI does not perform significantly worse than the OpenAI evaluator agent alone. This is somewhat impressive as most of the answers have a relatively high correctness and both the embedding_answers function and the OpenAI evaluator agent have to say that the generated and ideal answers are similar for the Embed_AI algorithm to return "CORRECT". Therefore, if the embedding_answers function had zero utility in performance evaluation, one would expect the Embed_AI accuracy to be significantly lower than the OpenAI evaluator agent accuracy, but this is not observed.
 
