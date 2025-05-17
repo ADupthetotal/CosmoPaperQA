@@ -53,7 +53,7 @@ Accuracy is the percentage of the given automated evaluation results that agree 
 |    LitQA2_edit with OpenAI RAG|                                78%|                             89%|
 |  LitQA2_edit with PaperQA2 RAG|                                78%|                             83%|
 
-The OpenAI GPT-4o-mini LLM model was used to power all of the agents used to generate the above results. In total, getting these results cost around £20, with the PaperQA RAG runs making up the vast majority of that cost.
+The OpenAI GPT-4o-mini LLM model was used to power all of the OpenAI agents used to generate the above results. The text embeddings for OpenAI used the text-embedding-ada-002 model. In total, getting these results cost around £20, with the PaperQA RAG runs making up the vast majority of that cost.
 
 ## Key Findings
 Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than the custom OpenAI evaluator agent alone, across all data. 
