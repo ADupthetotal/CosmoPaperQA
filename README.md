@@ -41,8 +41,11 @@ Correctness is the percentage of generated answers that were evaluated to be cor
 |-------------------------------|-----------------------------------------|--------------------------------------|-----------------------------------|
 |   CosmoPaperQA with OpenAI RAG|                                      80%|                                   77%|                                70%|
 | CosmoPaperQA with PaperQA2 RAG|                                      90%|                                   87%|                                73%|
+|  ComsoPaperQA with Mistral RAG|                                73$\pm$4%|                                      |                                   |
 |    LitQA2_edit with OpenAI RAG|                                      85%|                                   75%|                                79%|
 |  LitQA2_edit with PaperQA2 RAG|                                      80%|                                   73%|                                79%|
+|   LitQA2_edit with Mistral RAG|                                         |                                      |                                   |
+
 
 Accuracy is the percentage of the given automated evaluation results that agree with the human evaluations.
 
@@ -53,7 +56,7 @@ Accuracy is the percentage of the given automated evaluation results that agree 
 |    LitQA2_edit with OpenAI RAG|                                78%|                             89%|
 |  LitQA2_edit with PaperQA2 RAG|                                78%|                             83%|
 
-The OpenAI GPT-4o-mini LLM model was used to power all of the OpenAI agents used to generate the above results. The text embeddings for OpenAI used the text-embedding-ada-002 model. In total, getting these results cost around £20, with the PaperQA RAG runs making up the vast majority of that cost.
+The OpenAI GPT-4o-mini LLM model was used to power all of the OpenAI agents used to generate the above results. The text embeddings for OpenAI used the text-embedding-ada-002 model. The Mistral LLM model used to power the RAG agent was mistral-medium-latest and the Mistral text embedding model used to faciliate the Mistral RAG agent was mistral-embed. In total, getting these results cost around £50, with the PaperQA RAG runs and the 4o OpenAI runs making up the majority of that cost.
 
 ## Key Findings
 Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than the custom OpenAI evaluator agent alone, across all data. 
