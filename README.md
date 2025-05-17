@@ -38,9 +38,7 @@ Ensure that the following libraries are installed before running the python scri
 LitQA2_edit is an edited version of [LitQA2](https://github.com/Future-House/LAB-Bench/blob/main/LitQA2/litqa-v2-public.jsonl) used to compare CosmoPaperQA to other datasets designed for performance evaluation of AI agents in scientific research.
 
 ## Summary of Results
-The errors quoted here are calculated using the standard error (SE), assuming a binomial distribution to the correctness and accuracy statistics.
-
-Correctness is the percentage of generated answers that were evaluated to be correct.
+The errors quoted here are calculated using the standard error (SE), assuming a binomial distribution to the correctness and accuracy statistics. Correctness is the percentage of generated answers that were evaluated to be correct and accuracy is the percentage of the given automated evaluation results that agree with the human evaluations. The OpenAI GPT-4o-mini model was used to power all of the OpenAI agents used to generate the following results. The vector embeddings for the Embed_AI algorithm used the text-embedding-ada-002 model. The Mistral LLM model used to power the RAG agent was mistral-medium-latest and the Mistral text embedding model used to faciliate the Mistral RAG agent was mistral-embed.
 
 |                                    | Correctness using OpenAI evaluator agent(%)| Correctness using Embed_AI evaluation(%)| Correctness using human evaluation(%)|
 |------------------------------------|--------------------------------------------|-----------------------------------------|--------------------------------------| 
@@ -53,9 +51,6 @@ Correctness is the percentage of generated answers that were evaluated to be cor
 |       LitQA2_edit with PaperQA2 RAG|                                 80&plusmn;4|                              73&plusmn;4|                           87&plusmn;3|
 |        LitQA2_edit with Mistral RAG|                                 78&plusmn;4|                              71&plusmn;4|                           66&plusmn;5|
 
-
-Accuracy is the percentage of the given automated evaluation results that agree with the human evaluations.
-
 |                                    | Accuracy of Embed_AI evaluation(%)| Accuracy of OpenAI evaluator agent(%)|
 |------------------------------------|-----------------------------------|--------------------------------------|
 |        CosmoPaperQA with OpenAI RAG|                        71&plusmn;4|                           76&plusmn;4|
@@ -67,7 +62,23 @@ Accuracy is the percentage of the given automated evaluation results that agree 
 |       LitQA2_edit with PaperQA2 RAG|                        83&plusmn;4|                           88&plusmn;3|
 |        LitQA2_edit with Mistral RAG|                        88&plusmn;3|                           85&plusmn;4|
 
-The OpenAI GPT-4o-mini LLM model was used to power all of the OpenAI agents used to generate the above results. The text embeddings for OpenAI used the text-embedding-ada-002 model. The Mistral LLM model used to power the RAG agent was mistral-medium-latest and the Mistral text embedding model used to faciliate the Mistral RAG agent was mistral-embed. In total, getting these results cost around £25, with the PaperQA RAG runs making up the majority of that cost.
+In total, getting these results cost around £25, with the PaperQA RAG runs making up the majority of that cost.
+
+The following results used the text-embedding-3-large model for the vector embeddings for the Embed_AI algorithm. Also, as the OpenAI models used for these results are significantly more costly, a random sample of half of the questions from the respective datasets was used to gather these results. The o3-mini model used a reasoning_effort parameter of "medium". For each run in the following results, the OpenAI model used to power the evaluator agent was the same as the one used to power the corresponding RAG agent.
+
+|                                              | Correctness using OpenAI evaluator agent(%)| Correctness using Embed_AI evaluation(%)| Correctness using human evaluation(%)|
+|----------------------------------------------|--------------------------------------------|-----------------------------------------|--------------------------------------| 
+|         CosmoPaperQA with OpenAI RAG (gpt-4o)|                                 88&plusmn;5|                              86&plusmn;5|                           80&plusmn;6|
+|        CosmoPaperQA with OpenAI RAG (o3-mini)|                                 86&plusmn;5|                              82&plusmn;5|                           84&plusmn;5|
+|  CosmoPaperQA with Simple OpenAI RAG (gpt-4o)|                                 84&plusmn;5|                              82&plusmn;5|                           76&plusmn;6|
+| CosmoPaperQA with Simple OpenAI RAG (o3-mini)|                                 90&plusmn;4|                              86&plusmn;5|                           86&plusmn;5|
+
+|                                              | Accuracy using Embed_AI evaluation(%)| Accuracy using OpenAI evaluator agent(%)|
+|----------------------------------------------|--------------------------------------|-----------------------------------------|
+|         CosmoPaperQA with OpenAI RAG (gpt-4o)|                           90&plusmn;4|                              88&plusmn;5|
+|        CosmoPaperQA with OpenAI RAG (o3-mini)|                           87&plusmn;5|                              87&plusmn;5|
+|  CosmoPaperQA with Simple OpenAI RAG (gpt-4o)|                           90&plusmn;4|                              92&plusmn;4|
+| CosmoPaperQA with Simple OpenAI RAG (o3-mini)|                           81&plusmn;5|                              82&plusmn;5|
 
 ## Key Findings
 Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than or equal to the custom OpenAI evaluator agent alone, across nearly all of the data. The one notable exception is the PaperQA2 RAG agent answering the questions from the LitQA2_edit dataset, but even that isn't statistically significant.
@@ -77,6 +88,8 @@ Also, this particular implementation is unrefined and there is room for much imp
 From the results gathered, the PaperQA2, the OpenAI RAG agent and the Simple OpenAI RAG agent answers were observed to have similar levels of correctness, measured against human evaluation and with the same datasets, with differences in the mean correctnesses of up to around 4%. The one notable exception was, again, the PaperQA2 RAG agent answering the questions from the LitQA2_edit dataset.
 
 This seems to suggest that the differences in methodology between the PaperQA2 RAG agent, the OpenAI RAG agent and the Simple OpenAI RAG agent are negligible. The PaperQA2 RAG agent answering the questions from the LitQA2_edit dataset is an anomalous datapoint, for both the accuracy and correctness. The original [LitQA2](https://github.com/Future-House/LAB-Bench/blob/main/LitQA2/litqa-v2-public.jsonl) dataset questions that I used to construct the LitQA2_edit dataset contained some questions that were used to optimise the performance of PaperQA2 and some "unseen" questions that were used to ensure that PaperQA2 did not overfit to the optimisations. This particular datapoint being anomalous in the correctness seems to suggest that some overfitting in PaperQA2 to the LitQA2 dataset is present. This is not enough evidence to definitively make that conclusion, but this something to keep in mind when interpreting these results.
+
+Finally, the runs involving the more costly OpenAI models did indeed demonstrate that there was a measurable increase in performance between the small gpt-4o-mini model and the larger, and more costly, gpt-4o and o3-mini models. This demonstrates that the CosmoPaperQA dataset seems to really provide a measure of agentic performance with answering cosmology research questions. However, one interesting thing to note is that the o3-mini model seems to provide a measurable increase in performance compared to the gpt-4o model for answering the CosmologyQA questions, despite gpt-4o being significantly more costly than o3-mini. This seems to validate OpenAI's claims that the o3-mini model is ["delivering exceptional STEM capabilities—with particular strength in science, math, and coding"](https://openai.com/index/openai-o3-mini/). 
 
 ## Acknowledgements
 Thanks to [Dr Boris Bolliet](https://github.com/borisbolliet) for advice and support during the development of this project.
