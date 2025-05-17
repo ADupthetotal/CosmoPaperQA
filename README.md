@@ -18,6 +18,9 @@ The PaperQA2 RAG takes in a question and documents and uses the information in t
 ### OpenAI RAG
 The OpenAI RAG also takes in a question and documents and uses the information in the documents to answer the question. The code follows the same RAG methodology as the PaperQA2 algorithm. The main difference between the two is that the PaperQA2 RAG uses cosine similarities to rank the chunks from the papers, while OpenAI RAG uses semantic search to rank the chunks.
 
+### Simple OpenAI RAG
+This RAG, instead of ranking chunks explicity in the program code and using those to generate the answer, uses the native OpenAI file search tool to answer the question in one step. Again, semantic search is used to find the relevant pieces of information.
+
 ### Mistral RAG
 First, the Mistral RAG agent uses the Mistral OCR to convert the source papers into a markdown format. Then, Mistral RAG uses document chunks' text embeddings to create a vector store of the source papers. Cosine similarity between the chunks and the question is used to get the relevant information/chunks to answer the question. Finally, the Mistral AI uses the extracted chunks to generate the answer to the original question.
 
@@ -37,24 +40,30 @@ LitQA2_edit is an edited version of [LitQA2](https://github.com/Future-House/LAB
 ## Summary of Results
 Correctness is the percentage of generated answers that were evaluated to be correct.
 
-|                               | Correctness using OpenAI evaluator agent| Correctness using Embed_AI evaluation| Correctness using human evaluation|
-|-------------------------------|-----------------------------------------|--------------------------------------|-----------------------------------|
-|   CosmoPaperQA with OpenAI RAG|                                      80%|                                   77%|                                70%|
-| CosmoPaperQA with PaperQA2 RAG|                                      90%|                                   87%|                                73%|
-|  ComsoPaperQA with Mistral RAG|                             73&plusmn;4%|                                      |                                   |
-|    LitQA2_edit with OpenAI RAG|                                      85%|                                   75%|                                79%|
-|  LitQA2_edit with PaperQA2 RAG|                                      80%|                                   73%|                                79%|
-|   LitQA2_edit with Mistral RAG|                                         |                                      |                                   |
+|                                    | Correctness using OpenAI evaluator agent(%)| Correctness using Embed_AI evaluation(%)| Correctness using human evaluation(%)|
+|------------------------------------|--------------------------------------------|-----------------------------------------|--------------------------------------| 
+|        CosmoPaperQA with OpenAI RAG|                                 82&plusmn;4|                              79&plusmn;4|                           71&plusmn;4|
+| CosmoPaperQA with Simple OpenAI RAG|                                 85&plusmn;3|                              82&plusmn;4|                           74&plusmn;4|
+|      CosmoPaperQA with PaperQA2 RAG|                                 91&plusmn;3|                              87&plusmn;3|                           75&plusmn;4|
+|       ComsoPaperQA with Mistral RAG|                                 73&plusmn;4|                              65&plusmn;5|                           47&plusmn;5|
+|         LitQA2_edit with OpenAI RAG|                                 85&plusmn;4|                              75&plusmn;4|                           79&plusmn;4|
+|  LitQA2_edit with Simple OpenAI RAG|                                 79&plusmn;4|                              72&plusmn;4|                           79&plusmn;4|
+|       LitQA2_edit with PaperQA2 RAG|                                 80&plusmn;4|                              73&plusmn;4|                           87&plusmn;3|
+|        LitQA2_edit with Mistral RAG|                                 78&plusmn;4|                              71&plusmn;4|                           66&plusmn;5|
 
 
 Accuracy is the percentage of the given automated evaluation results that agree with the human evaluations.
 
-|                               | Accuracy of OpenAI evaluator agent| Accuracy of Embed_AI evaluation|
-|-------------------------------|-----------------------------------|--------------------------------|
-|   CosmoPaperQA with OpenAI RAG|                                70%|                             76%|
-| CosmoPaperQA with PaperQA2 RAG|                                73%|                             81%|
-|    LitQA2_edit with OpenAI RAG|                                78%|                             89%|
-|  LitQA2_edit with PaperQA2 RAG|                                78%|                             83%|
+|                                    | Accuracy of Embed_AI evaluation(%)| Accuracy of OpenAI evaluator agent(%)|
+|------------------------------------|-----------------------------------|--------------------------------------|
+|        CosmoPaperQA with OpenAI RAG|                        71&plusmn;4|                           76&plusmn;4|
+| CosmoPaperQA with Simple OpenAI RAG|                        86&plusmn;3|                           87&plusmn;3|
+|      CosmoPaperQA with PaperQA2 RAG|                        81&plusmn;4|                           82&plusmn;4|
+|       ComsoPaperQA with Mistral RAG|                        73&plusmn;4|                           65&plusmn;5|
+|         LitQA2_edit with OpenAI RAG|                        89&plusmn;3|                           89&plusmn;3|
+|  LitQA2_edit with Simple OpenAI RAG|                        83&plusmn;4|                           86&plusmn;3|
+|       LitQA2_edit with PaperQA2 RAG|                        83&plusmn;4|                           88&plusmn;3|
+|        LitQA2_edit with Mistral RAG|                        88&plusmn;3|                           85&plusmn;4|
 
 The OpenAI GPT-4o-mini LLM model was used to power all of the OpenAI agents used to generate the above results. The text embeddings for OpenAI used the text-embedding-ada-002 model. The Mistral LLM model used to power the RAG agent was mistral-medium-latest and the Mistral text embedding model used to faciliate the Mistral RAG agent was mistral-embed. In total, getting these results cost around £50, with the PaperQA RAG runs and the 4o OpenAI runs making up the majority of that cost.
 
