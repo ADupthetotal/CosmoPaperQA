@@ -41,7 +41,7 @@ Correctness is the percentage of generated answers that were evaluated to be cor
 |-------------------------------|-----------------------------------------|--------------------------------------|-----------------------------------|
 |   CosmoPaperQA with OpenAI RAG|                                      80%|                                   77%|                                70%|
 | CosmoPaperQA with PaperQA2 RAG|                                      90%|                                   87%|                                73%|
-|  ComsoPaperQA with Mistral RAG|                                73$\pm$4%|                                      |                                   |
+|  ComsoPaperQA with Mistral RAG|                             73&plusmn;4%|                                      |                                   |
 |    LitQA2_edit with OpenAI RAG|                                      85%|                                   75%|                                79%|
 |  LitQA2_edit with PaperQA2 RAG|                                      80%|                                   73%|                                79%|
 |   LitQA2_edit with Mistral RAG|                                         |                                      |                                   |
