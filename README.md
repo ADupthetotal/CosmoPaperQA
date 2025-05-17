@@ -80,6 +80,8 @@ The following results used the text-embedding-3-large model for the vector embed
 |  CosmoPaperQA with Simple OpenAI RAG (gpt-4o)|                           90&plusmn;4|                              92&plusmn;4|
 | CosmoPaperQA with Simple OpenAI RAG (o3-mini)|                           81&plusmn;5|                              82&plusmn;5|
 
+In total, getting these results cost around £20.
+
 ## Key Findings
 Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than or equal to the custom OpenAI evaluator agent alone, across nearly all of the data. The one notable exception is the PaperQA2 RAG agent answering the questions from the LitQA2_edit dataset, but even that isn't statistically significant.
 
