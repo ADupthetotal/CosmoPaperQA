@@ -93,7 +93,7 @@ This seems to suggest that the differences in methodology between the PaperQA2 R
 
 The runs involving the more costly OpenAI models did indeed demonstrate that there was a measurable increase in performance between the small gpt-4o-mini model and the larger, and more costly, gpt-4o and o3-mini models. This demonstrates that the CosmoPaperQA dataset seems to really provide a measure of agentic performance with answering cosmology research questions. However, one interesting thing to note is that the o3-mini model seems to provide a measurable increase in performance compared to the gpt-4o model for answering the CosmologyQA questions, despite gpt-4o being significantly more costly than o3-mini. This seems to validate OpenAI's claims that the o3-mini model is ["delivering exceptional STEM capabilities—with particular strength in science, math, and coding"](https://openai.com/index/openai-o3-mini/). 
 
-Finally, it is worth noting that using the text-embedding-3-large model for the vector embeddings, as compared to the text-embedding-ada-002 model, did not seem to give a significant increase in performance to the Embed_Ai algorithm, compared to the OpenAI evaluator agent alone.
+Finally, it is worth noting that using the text-embedding-3-large model for the vector embeddings, as compared to the text-embedding-ada-002 model, did not seem to give a significant increase in performance to the Embed_AI algorithm, compared to the OpenAI evaluator agent alone.
 
 ## Acknowledgements
 Thanks to [Dr Boris Bolliet](https://github.com/borisbolliet) for advice and support during the development of this project.
