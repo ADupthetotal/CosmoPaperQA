@@ -62,7 +62,7 @@ The errors quoted here are calculated using the standard error (SE), assuming a 
 |       LitQA2_edit with PaperQA2 RAG|                        83&plusmn;4|                           88&plusmn;3|
 |        LitQA2_edit with Mistral RAG|                        88&plusmn;3|                           85&plusmn;4|
 
-In total, getting these results cost around £25, with the PaperQA RAG runs making up the majority of that cost.
+Getting these results cost around £25, with the PaperQA RAG runs making up the majority of that cost.
 
 The following results used the text-embedding-3-large model for the vector embeddings for the Embed_AI algorithm. Also, as the OpenAI models used for these results are significantly more costly, a random sample of half of the questions from the respective datasets was used to gather these results. The o3-mini model used a reasoning_effort parameter of "medium". For each run in the following results, the OpenAI model used to power the evaluator agent was the same as the one used to power the corresponding RAG agent.
 
@@ -80,7 +80,7 @@ The following results used the text-embedding-3-large model for the vector embed
 |  CosmoPaperQA with Simple OpenAI RAG (gpt-4o)|                           90&plusmn;4|                              92&plusmn;4|
 | CosmoPaperQA with Simple OpenAI RAG (o3-mini)|                           81&plusmn;5|                              82&plusmn;5|
 
-In total, getting these results cost around £20.
+Getting these results cost around £20, giving a total of around £45.
 
 ## Key Findings
 Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than or equal to the custom OpenAI evaluator agent alone, across nearly all of the data. The one notable exception is the PaperQA2 RAG agent answering the questions from the LitQA2_edit dataset, but even that isn't statistically significant.
