@@ -38,7 +38,7 @@ Ensure that the following libraries are installed before running the python scri
 LitQA2_edit is an edited version of [LitQA2](https://github.com/Future-House/LAB-Bench/blob/main/LitQA2/litqa-v2-public.jsonl) used to compare CosmoPaperQA to other datasets designed for performance evaluation of AI agents in scientific research.
 
 ## Summary of Results
-The errors quoted here are calculated using the standard error (SE), assuming a binomial distribution to the correctness and accuracy statistics. $SE = \sqrt{\left\frac{\mu(1-\mu)}{n}\right}$ where $\mu$ is the mean and $n$ is the sample number. 
+The errors quoted here are calculated using the standard error (SE), assuming a binomial distribution to the correctness and accuracy statistics.
 
 Correctness is the percentage of generated answers that were evaluated to be correct.
 
@@ -67,16 +67,16 @@ Accuracy is the percentage of the given automated evaluation results that agree 
 |       LitQA2_edit with PaperQA2 RAG|                        83&plusmn;4|                           88&plusmn;3|
 |        LitQA2_edit with Mistral RAG|                        88&plusmn;3|                           85&plusmn;4|
 
-The OpenAI GPT-4o-mini LLM model was used to power all of the OpenAI agents used to generate the above results. The text embeddings for OpenAI used the text-embedding-ada-002 model. The Mistral LLM model used to power the RAG agent was mistral-medium-latest and the Mistral text embedding model used to faciliate the Mistral RAG agent was mistral-embed. In total, getting these results cost around £50, with the PaperQA RAG runs and the 4o OpenAI runs making up the majority of that cost.
+The OpenAI GPT-4o-mini LLM model was used to power all of the OpenAI agents used to generate the above results. The text embeddings for OpenAI used the text-embedding-ada-002 model. The Mistral LLM model used to power the RAG agent was mistral-medium-latest and the Mistral text embedding model used to faciliate the Mistral RAG agent was mistral-embed. In total, getting these results cost around £20, with the PaperQA RAG runs making up the majority of that cost.
 
 ## Key Findings
-Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than or equal to the custom OpenAI evaluator agent alone, across nearly all of the data. The one notable excpetion is the PaperQA2 RAG agent answering the questions from the LitQA2_edit dataset.
+Even though the Embed_AI algorithm's correctness here is still not in agreement with human evaluation, the accuracy of the Embed_AI algorithm is greater than or equal to the custom OpenAI evaluator agent alone, across nearly all of the data. The one notable exception is the PaperQA2 RAG agent answering the questions from the LitQA2_edit dataset, but even that isn't statisitcally significant.
 
-Also, this particular implementation is unrefined and there is room for much improvement. As can be seen in the table above, even with this unrefined implementation, there is a measureable improvement in accuracy from the custom OpenAI evaluator to the Embed_AI algorithm. Therefore, Eval_AI can increase the accuracy of performance evaluation, even unrefined. 
+Also, this particular implementation is unrefined and there is room for much improvement. As can be seen in the table above, even with this unrefined implementation, there is a measurable improvement in accuracy from the custom OpenAI evaluator to the Embed_AI algorithm across some of the data. In all cases, the differences between the two methods is not statistically significant. Therefore, Eval_AI does not perform significantly worse than the OpenAI evaluator agent alone, which is somewhat impressive as most of the answers have a relatively high correctness and both the embedding_answers function and OpenAI evaluator have to say that the generated and ideal answers are similar for the Embed_AI algorithm to return "CORRECT".
 
-From the results gathered, the PaperQA2 and the OpenAI RAG agent answers were observed to have similar levels of correctness, measured against human evaluation and with the same datasets, with differences of less than 3% across all results gathered. 
+From the results gathered, the PaperQA2, the OpenAI RAG agent and the Simple OpenAI RAG agent answers were observed to have similar levels of correctness, measured against human evaluation and with the same datasets, with differences in the mean correctnesses of up to around 4%. The one notable exception was, again, the PaperQA2 RAG agent answering the questions from the LitQA2_edit dataset.
 
-We conjecture that this similarity in correctness between the OpenAI RAG agent and the PaperQA2 RAG agents (across the CosmoPaperQA and the LitQA2_edit datasets) is due to this similar methodology in RAG implementation. If this is true, then the design of the OpenAI RAG agent was successful in its aim to mimic the behaviour of the PaperQA2 code.
+This seems to suggest that the differences in methodology between the PaperQA2 RAG agent, the OpenAI RAG agent and the Simple OpenAI RAG agent are negligible. The PaperQA2 RAG agent answering the questions from the LitQA2_edit dataset is an anomalous datapoint, for both the accuracy and correctness. The original [LitQA2](https://github.com/Future-House/LAB-Bench/blob/main/LitQA2/litqa-v2-public.jsonl) dataset questions that I used to construct the LitQA2_edit dataset contained some questions that were used to optimise the performance of PaperQA2 and some "unseen" questions that were used to ensure that PaperQA2 did not overfit to the optimisations. This seems to suggest that some overfitting in PaperQA2 to the LitQA2 dataset is present. This is not enough evidence to definitively make that conclusion, but this something to keep in mind when interpreting these results.
 
 ## Acknowledgements
 Thanks to [Dr Boris Bolliet](https://github.com/borisbolliet) for advice and support during the development of this project.
