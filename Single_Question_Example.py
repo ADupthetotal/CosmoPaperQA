@@ -14,7 +14,6 @@ async def rag_agent(question, vector_store, rag_model) -> str:
     Returns:
         Answer to the inputted question
     """
-    settings = Settings()
     settings.temperature=0.0
     settings.llm = rag_model
 
@@ -28,12 +27,19 @@ async def rag_agent(question, vector_store, rag_model) -> str:
 #"directory" is directory in which papers used in RAG can be found
 directory = "/home/adrian/Documents/University Work/Part III Project/cmbagent_dataset/Source_Papers"
 
+settings = Settings(
+    parsing={
+        "use_doc_details": False,  # Disable metadata extraction
+        "disable_doc_valid_check": True  # Skip document validation
+    },
+)
+
 vector_store = Docs()
 # valid extensions include .pdf, .txt, .md, and .html
 full_paths = [os.path.abspath(os.path.join(directory, f)) for f in os.listdir(directory)]
 
 for doc in (full_paths):
-    vector_store.add(doc)
+    vector_store.add(doc, settings=settings)
     
 from typing import Literal
 import numpy as np
@@ -309,7 +315,7 @@ def inspect_ai_eval(rag_agent, eval_agent, embedding_answers):
     async def my_agent(task_input: list[dict[str, Any]]) -> str:
         #replace rag_agent function if needed, to implement custom RAG agent.
         #Can put OpenAI RAG agent or PaperQA2 RAG agent here
-        answer = await rag_agent(task_input[0]["content"], vector_store, "gpt-4.1")
+        answer = await rag_agent(task_input[0]["content"], vector_store, "gpt-4o-mini")
         return answer
     
     @solver
